@@ -12,7 +12,6 @@ import org.bukkit.entity.Player;
 import me.crimsondawn45.areachat.AreaChat;
 import me.crimsondawn45.areachat.util.ChatHelper;
 import me.crimsondawn45.datafileplugin.DataFile;
-import me.crimsondawn45.datafileplugin.DataFilePlugin;
 import net.md_5.bungee.api.ChatColor;
 
 public class MeCommand implements CommandExecutor {
@@ -44,23 +43,6 @@ public class MeCommand implements CommandExecutor {
 
         if(sender instanceof Player) {  //If sender is player blacklist players that shouldn't be able to hear it.
             Player senderPlayer = (Player) sender;
-
-            if(DataFilePlugin.isFloodgatePlayer(senderPlayer)) {    //Check for floodgate
-
-                String floodgatePrefix;
-
-                if(areaChatData.contains("floodgate-prefix")) {
-                    floodgatePrefix = areaChatData.getString("floodgate-prefix");
-                } else {
-                    areaChatData.set("floodgate-prefix", "[B]");
-                    areaChatFile.save(areaChatData);
-                    floodgatePrefix = areaChatData.getString("floodgate-prefix");
-                }
-
-                senderName = floodgatePrefix + DataFilePlugin.getPlayerName(senderPlayer);
-            } else {
-                senderName = DataFilePlugin.getPlayerName(senderPlayer);
-            }
 
             for(Player recipient : recipients) {
 

@@ -66,23 +66,6 @@ public class MsgCommand implements CommandExecutor {
         if(sender instanceof Player) {
             Player senderPlayer = (Player) sender;
 
-            if(DataFilePlugin.isFloodgatePlayer(senderPlayer)) {    //Check for floodgate
-
-                String floodgatePrefix;
-
-                if(areaChatData.contains("floodgate-prefix")) {
-                    floodgatePrefix = areaChatData.getString("floodgate-prefix");
-                } else {
-                    areaChatData.set("floodgate-prefix", "[B]");
-                    areaChatFile.save(areaChatData);
-                    floodgatePrefix = areaChatData.getString("floodgate-prefix");
-                }
-
-                senderName = floodgatePrefix + DataFilePlugin.getPlayerName(senderPlayer);
-            } else {
-                senderName = DataFilePlugin.getPlayerName(senderPlayer);
-            }
-
             if(ChatHelper.isPlayerIgnoringSender(recipient, senderPlayer)) {
                isIgnoring = true;
             }
