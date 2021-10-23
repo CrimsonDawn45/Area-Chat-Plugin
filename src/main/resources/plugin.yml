@@ -1,0 +1,25 @@
+name: AreaChat
+version: 1.0.0
+author: CrimsonDawn45
+main: me.crimsondawn45.areachat.AreaChat
+api-version: 1.17
+description: Limit's player chat to a area around the player.
+depend: [DataFile]
+commands:
+  msg:
+    description: Sends a message to another player.
+    aliases:
+      - message
+      - tell
+      - whisper
+      - m
+      - pm
+      - dm
+  me:
+    description: Displays a message about yourself.
+  mute:
+    description: Mutes a player
+  unmute:
+    description: Unmutes a player
+  mutelist:
+    description: Displays a list of muted players
